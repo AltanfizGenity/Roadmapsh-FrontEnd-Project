@@ -47,6 +47,10 @@ main {
   border: 1px solid black;
 }
 
+.form-title {
+  text-align: center;
+}
+
 .birthdate-input {
   width: 100%;
   padding: 1rem;
@@ -101,5 +105,45 @@ main {
 
   .result {
     font-size: var(--text-medium);
+  }
+}
+
+@media (max-width: 64rem) {
+  body {
+    padding: 1rem;
+  }
+
+  main {
+    gap: 2rem;
+  }
+
+  .app-title {
+    text-align: center;
+    font-size: var(--text-xl);
+  }
+
+  .age-calculator {
+    width: 100%;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .birthdate-input {
+    padding: 0.5rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .overlay {
+    padding: 1rem;
+  }
+
+  .result-panel {
+    width: 100%;
+    .result {
+      font-size: var(--text-small);
+    }
   }
 }
