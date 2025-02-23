@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Age calculator</title>
-    <script src="./app.js" defer type="module"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,13 +11,25 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <script src="./app.js" defer type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
   <body>
     <main>
       <h1 class="app-title">Age Calculator</h1>
       <form class="age-calculator">
         <h2 class="form-title">Enter your birthdate</h2>
-        <input class="birthdate-input" name="birthdate" type="date" required />
+        <input
+          class="birthdate-input"
+          name="birthdate"
+          type="text"
+          required
+          placeholder="Select date"
+        />
         <button class="submit-btn btn">Calculate</button>
       </form>
       <div class="overlay">

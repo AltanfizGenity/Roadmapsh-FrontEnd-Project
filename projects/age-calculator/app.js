@@ -1,9 +1,16 @@
+// import flatpickr from "flatpickr";
 import { DateTime } from "./node_modules/luxon/src/luxon.js";
 
 let ageForm = document.querySelector(".age-calculator");
 let resultElement = document.querySelector(".result");
 let overlay = document.querySelector(".overlay");
 let closeBtn = document.querySelector(".close-btn");
+
+flatpickr(".birthdate-input", {
+  altInput: true,
+  altFormat: "F j, Y",
+  dateFormat: "Y-m-d",
+});
 
 function calculateAge(userBirthdate) {
   if (!userBirthdate) {

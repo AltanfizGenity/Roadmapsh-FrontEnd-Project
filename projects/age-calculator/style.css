@@ -51,6 +51,7 @@ main {
   width: 100%;
   padding: 1rem;
   border-radius: 0.9375rem;
+  font-size: var(--text-medium);
 }
 
 .btn {
