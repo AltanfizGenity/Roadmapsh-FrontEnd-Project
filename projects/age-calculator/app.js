@@ -10,6 +10,7 @@ flatpickr(".birthdate-input", {
   altInput: true,
   altFormat: "F j, Y",
   dateFormat: "Y-m-d",
+  maxDate: new Date(),
 });
 
 function calculateAge(userBirthdate) {
