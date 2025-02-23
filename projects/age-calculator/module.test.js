@@ -18,6 +18,22 @@ let easyTestSuite = [
     input: "2010-06-15",
     expectYear: 14,
   },
+  {
+    input: "2025-02-23",
+    expectYear: 0,
+  },
+  {
+    input: "2024-02-29",
+    expectYear: 0,
+  },
+  {
+    input: "2000-02-29",
+    expectYear: 24,
+  },
+  {
+    input: "2004-02-29",
+    expectYear: 20,
+  },
 ];
 
 test("calcuate various age", () => {
