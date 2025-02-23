@@ -1,0 +1,71 @@
+:root {
+  --app-whitespace: 4rem;
+  --text-default: 1rem;
+  --text-small: 1.25rem;
+  --text-medium: 1.5rem;
+  --text-large: 1.75rem;
+  --text-xl: 2rem;
+  --text-title: 3rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: var(--app-whitespace);
+  font-family: "Poppins", sans-serif, Arial;
+}
+
+main {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--app-whitespace);
+  gap: 4rem;
+}
+
+.app-title {
+  font-size: var(--text-title);
+  font-weight: bold;
+}
+
+.age-calculator {
+  width: 50rem;
+  height: auto;
+  padding: var(--app-whitespace);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+
+  border-radius: 0.9375rem;
+  border: 1px solid black;
+}
+
+.birthdate-input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.9375rem;
+}
+
+.submit-btn {
+  width: 50%;
+  padding: 1rem;
+  font-size: var(--text-small);
+  background-color: crimson;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 15px;
+  margin-top: auto;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: hsl(348, 83%, 30%);
+  }
+}
