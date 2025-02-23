@@ -12,5 +12,8 @@
   "devDependencies": {
     "luxon": "^3.5.0",
     "vitest": "^3.0.6"
+  },
+  "dependencies": {
+    "flatpickr": "^4.6.13"
   }
 }
