@@ -2,24 +2,26 @@ import { DateTime } from "./node_modules/luxon/src/luxon.js";
 
 let ageForm = document.querySelector(".age-calculator");
 let resultElement = document.querySelector(".result");
+let overlay = document.querySelector(".overlay");
+let closeBtn = document.querySelector(".close-btn");
 
-function calculateAge(userBirthday) {
-  if (!userBirthday) {
-    throw Error("Birthday params can't be empty");
+function calculateAge(userBirthdate) {
+  if (!userBirthdate) {
+    throw Error("birthdate params can't be empty");
   }
 
   const now = DateTime.now();
-  const birthday = DateTime.fromISO(userBirthday);
+  const birthdate = DateTime.fromISO(userBirthdate);
 
-  if (!birthday.isValid) {
-    throw Error("Invalid birthday date format");
+  if (!birthdate.isValid) {
+    throw Error("Invalid birthdate date format");
   }
 
-  if (birthday > now) {
-    throw Error("Cannot calculate future birthday date");
+  if (birthdate > now) {
+    throw Error("Cannot calculate future birthdate date");
   }
 
-  const diff = now.diff(birthday, ["year", "month", "day"]).toObject();
+  const diff = now.diff(birthdate, ["year", "month", "day"]).toObject();
   return diff;
 }
 
@@ -40,6 +42,11 @@ export function getAgeString(age) {
 ageForm.addEventListener("submit", (event) => {
   event.preventDefault();
   let formData = new FormData(ageForm);
-  let age = calculateAge(formData.get("birthday"));
+  let age = calculateAge(formData.get("birthdate"));
   resultElement.innerText = getAgeString(age);
+  overlay.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+  overlay.classList.remove("open");
 });
