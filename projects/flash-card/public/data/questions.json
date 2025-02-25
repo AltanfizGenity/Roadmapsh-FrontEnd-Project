@@ -1,0 +1,42 @@
+[
+  {
+    "question": "How does TypeScript's type system help with refactoring?",
+    "answer": "Because TypeScript knows the types of variables and functions, it can help catch errors introduced during refactoring. If you change a type, the compiler will flag any code that's now incompatible, preventing bugs that might otherwise slip through."
+  },
+  {
+    "question": "What is the purpose of declaration files (.d.ts) in TypeScript?",
+    "answer": "Declaration files describe the types of existing JavaScript libraries or modules to TypeScript. This allows you to use these libraries in your TypeScript code with type checking and autocompletion, even if the libraries themselves are written in plain JavaScript."
+  },
+  {
+    "question": "How does TypeScript handle type inference?",
+    "answer": "TypeScript can often infer the type of a variable based on its value or how it's used, reducing the need for explicit type annotations. This makes the code less verbose while still providing type safety."
+  },
+  {
+    "question": "What are some key differences between TypeScript interfaces and types?",
+    "answer": "While both are used to define the shape of objects, interfaces are primarily used to define the structure of objects, while types can define more complex types, including unions, intersections, and primitive types. Interfaces are also 'open' and can be extended, while types cannot be modified after they are defined."
+  },
+  {
+    "question": "What is the benefit of using enums in TypeScript?",
+    "answer": "Enums allow you to define a set of named constants, which can make your code more readable and maintainable by replacing magic numbers or strings with descriptive names. They also provide type safety by ensuring that only valid enum values are used."
+  },
+  {
+    "question": "What is a 'namespace' in TypeScript, and what is its purpose?",
+    "answer": "A namespace is a way to organize your code and avoid naming collisions. It creates a scope for your variables, functions, and classes, preventing them from interfering with other code in your project. (Note: Modules are now the preferred way to organize code, but namespaces are still supported)."
+  },
+  {
+    "question": "How does TypeScript contribute to better collaboration on larger projects?",
+    "answer": "By providing clear type information, TypeScript makes it easier for developers to understand the code written by others. This reduces the risk of misunderstandings and errors, making collaboration more efficient."
+  },
+  {
+    "question": "What is the relationship between TypeScript and ECMAScript standards?",
+    "answer": "TypeScript aims to stay aligned with evolving ECMAScript standards. It incorporates features from newer ECMAScript versions and often allows you to use them even before they are fully supported by all browsers, by compiling them down to compatible JavaScript."
+  },
+  {
+    "question": "What is the concept of 'structural typing' (or 'duck typing') in TypeScript?",
+    "answer": "TypeScript uses structural typing, meaning that the compatibility of two types is determined by their structure (the properties they have), rather than their names. If two objects have the same shape, they are considered compatible, even if they have different names."
+  },
+  {
+    "question": "What is the purpose of the `any` type in TypeScript, and when should it be used (and avoided)?",
+    "answer": "The `any` type is a way to opt out of type checking. It allows you to assign any value to a variable of type `any`. It should be used sparingly, as it defeats the purpose of using TypeScript for type safety. It can be useful when working with libraries that don't have type declarations or when you are migrating a JavaScript project to TypeScript gradually."
+  }
+]
