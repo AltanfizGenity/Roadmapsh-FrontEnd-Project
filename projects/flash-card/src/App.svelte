@@ -5,7 +5,7 @@
 </script>
 
 <main id="flash-card">
-    <ProgressBar/>
-    <Card/>
-    <Controller/>
+  <ProgressBar />
+  <Card />
+  <Controller />
 </main>
