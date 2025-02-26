@@ -7,8 +7,10 @@
 </script>
 
 <main class="flash-card">
-  <Timer />
-  <ProgressBar />
+  <header>
+    <Timer />
+    <ProgressBar />
+  </header>
   <Card />
   <Controller />
 </main>
@@ -22,5 +24,13 @@
     align-items: center;
     justify-content: center;
     background-color: var(--background);
+  }
+
+  header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
   }
 </style>
