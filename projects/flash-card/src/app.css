@@ -4,6 +4,8 @@
   --primary: #05d69e;
   --secondary: #80f5d5;
   --accent: #44fdcc;
+
+  --radius: 0.625rem;
 }
 
 * {
