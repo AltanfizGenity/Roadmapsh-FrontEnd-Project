@@ -1,11 +1,18 @@
 <script lang="ts">
   let { progressMeter, totalLength }: ProgressBarProps = $props();
+  $inspect(progressMeter, totalLength);
 </script>
 
 <div class="progress-bar">
   <div class="progress">
-    <div class="progress-glow"></div>
-    <div class="progress-rect"></div>
+    <div
+      class="progress-glow"
+      style:width={`${(progressMeter / totalLength) * 100}%`}
+    ></div>
+    <div
+      class="progress-rect"
+      style:width={`${(progressMeter / totalLength) * 100}%`}
+    ></div>
   </div>
   <div class="indicator">{progressMeter} of {totalLength}</div>
 </div>
@@ -31,6 +38,8 @@
       height: 100%;
       background-color: var(--accent);
       border-radius: inherit;
+      transition: 0.5s ease;
+      transform-origin: left;
     }
 
     .progress-glow {
@@ -43,6 +52,8 @@
       border-radius: inherit;
       filter: blur(25px);
       z-index: 100;
+      transition: 0.5s ease;
+      transform-origin: left;
     }
   }
 
