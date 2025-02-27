@@ -1,12 +1,16 @@
-<script>
+<script lang="ts">
   import FlipButton from "./FlipButton.svelte";
   import NextButton from "./NextButton.svelte";
   import PreviousButton from "./PreviousButton.svelte";
+
+  type ControllerProps = { flipCard: Function; isOpen: boolean };
+
+  let { flipCard, isOpen }: ControllerProps = $props();
 </script>
 
 <div class="controller">
   <PreviousButton />
-  <FlipButton />
+  <FlipButton onclick={() => flipCard()} {isOpen} />
   <NextButton />
 </div>
 

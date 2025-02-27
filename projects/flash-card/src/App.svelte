@@ -4,16 +4,40 @@
   import Controller from "./libs/Controller.svelte";
   import ProgressBar from "./libs/ProgressBar.svelte";
   import Timer from "./libs/Timer.svelte";
+
+  let testData: Test[];
+  let currentTest: Test;
+  let isOpen: boolean;
+
+  function flipCard() {
+    isOpen = !isOpen;
+  }
+
+  onMount(async () => {
+    try {
+      let response = await fetch("/data/test.json");
+      let data: Awaited<TestRaw[]> = await response.json();
+      testData = data.map((test) => {
+        return { id: Date.now().toString(), isOpen: false, ...test };
+      });
+      currentTest = testData[0];
+      isOpen = currentTest.isOpen;
+    } catch (error) {
+      console.log(error);
+    }
+  });
 </script>
 
-<main class="flash-card">
-  <header>
-    <Timer />
-    <ProgressBar />
-  </header>
-  <Card />
-  <Controller />
-</main>
+{#if testData}
+  <main class="flash-card">
+    <header>
+      <Timer />
+      <ProgressBar />
+    </header>
+    <Card testData={currentTest} {isOpen} />
+    <Controller {flipCard} {isOpen} />
+  </main>
+{/if}
 
 <style>
   .flash-card {

@@ -1,8 +1,12 @@
+<script lang="ts">
+  type CardProps = { testData: Test; isOpen: boolean };
+  let { testData, isOpen }: CardProps = $props();
+</script>
+
 <div class="card">
   <div class="test-board">
-    <p class="test-text question">
-      What is the purpose of the `any` type in TypeScript, and when should it be
-      used (and avoided)?
+    <p class={`test-text ${isOpen ? "answer" : "question"}`}>
+      {isOpen ? testData.answer : testData.question}
     </p>
   </div>
 </div>
