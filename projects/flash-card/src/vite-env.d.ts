@@ -10,3 +10,7 @@ type Test = TestRaw & {
   id: string;
   isOpen: boolean;
 };
+
+interface EventProps {
+  onclick?: (event: MouseEvent) => void;
+}

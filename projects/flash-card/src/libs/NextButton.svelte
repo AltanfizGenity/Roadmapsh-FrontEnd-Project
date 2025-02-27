@@ -1,9 +1,5 @@
 <script lang="ts">
-  type NextButtonProps = {
-    onclick?: (event: MouseEvent) => void;
-  };
-
-  let props: NextButtonProps = $props();
+  let props: EventProps = $props();
 </script>
 
 <button
