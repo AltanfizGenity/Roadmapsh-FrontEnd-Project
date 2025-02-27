@@ -1,4 +1,15 @@
-<button class="outline-button next-button controller-button icon-button">
+<script lang="ts">
+  type NextButtonProps = {
+    onclick?: (event: MouseEvent) => void;
+  };
+
+  let props: NextButtonProps = $props();
+</script>
+
+<button
+  class="outline-button next-button controller-button icon-button"
+  {...props}
+>
   <p>Next</p>
   <div class="icon next-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"

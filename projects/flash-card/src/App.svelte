@@ -8,9 +8,24 @@
   let testData: Test[];
   let currentTest: Test;
   let isOpen: boolean;
+  let testPosition: number;
 
   function flipCard() {
     isOpen = !isOpen;
+  }
+
+  function nextTest() {
+    let newPosition = testPosition + 1;
+
+    if (!testData[newPosition]) {
+      console.log(
+        "Cannot switch to next test because you already came on last test"
+      );
+      return;
+    }
+
+    currentTest = testData[newPosition];
+    testPosition++;
   }
 
   onMount(async () => {
@@ -20,7 +35,8 @@
       testData = data.map((test) => {
         return { id: Date.now().toString(), isOpen: false, ...test };
       });
-      currentTest = testData[0];
+      testPosition = 1;
+      currentTest = testData[testPosition - 1];
       isOpen = currentTest.isOpen;
     } catch (error) {
       console.log(error);
@@ -35,7 +51,7 @@
       <ProgressBar />
     </header>
     <Card testData={currentTest} {isOpen} />
-    <Controller {flipCard} {isOpen} />
+    <Controller {flipCard} {isOpen} {nextTest} />
   </main>
 {/if}
 
