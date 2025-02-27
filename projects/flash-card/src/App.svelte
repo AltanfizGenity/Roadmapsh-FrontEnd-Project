@@ -9,6 +9,9 @@
   let index = $state<number>(0);
   let isFlipped = $state<boolean>(false);
   let currentTest = $derived<Test>(testData[index]);
+  let progressMeter = $derived<number>(
+    testData.filter((test) => test.isOpen).length
+  );
 
   onMount(async () => {
     try {
@@ -25,7 +28,6 @@
 
   function flipCard() {
     isFlipped = !isFlipped;
-    console.log(currentTest);
 
     if (currentTest.isOpen) {
       return;
@@ -60,7 +62,7 @@
   <main class="flash-card">
     <header>
       <Timer />
-      <ProgressBar />
+      <ProgressBar {...{ progressMeter, totalLength: testData.length }} />
     </header>
     <Card {...{ currentTest, isFlipped }} />
     <Controller {...{ currentTest, flipCard, changeTest, isFlipped }} />

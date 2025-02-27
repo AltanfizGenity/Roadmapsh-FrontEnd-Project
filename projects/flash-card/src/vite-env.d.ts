@@ -13,6 +13,10 @@ type Test = TestRaw & {
 
 type ClickEventHandler = (mouse: MouseEvent) => void;
 
+type EventProps = {
+  onclick: ClickEventHandler;
+};
+
 type CardProps = { currentTest: Test; isFlipped: boolean };
 
 type ControllerProps = {
@@ -26,6 +30,7 @@ type FlipButtonProps = EventProps & {
   isFlipped: boolean;
 };
 
-type EventProps = {
-  onclick: ClickEventHandler;
+type ProgressBarProps = {
+  progressMeter: number;
+  totalLength: number;
 };

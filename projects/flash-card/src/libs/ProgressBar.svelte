@@ -1,9 +1,13 @@
+<script lang="ts">
+  let { progressMeter, totalLength }: ProgressBarProps = $props();
+</script>
+
 <div class="progress-bar">
   <div class="progress">
     <div class="progress-glow"></div>
     <div class="progress-rect"></div>
   </div>
-  <div class="indicator">0 of 0</div>
+  <div class="indicator">{progressMeter} of {totalLength}</div>
 </div>
 
 <style>
