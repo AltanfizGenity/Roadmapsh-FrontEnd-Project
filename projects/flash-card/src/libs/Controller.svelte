@@ -5,16 +5,17 @@
 
   type ControllerProps = {
     flipCard: ClickEventHandler;
+    changeTest: Function;
     currentTest: Test;
   };
 
-  let { flipCard, currentTest }: ControllerProps = $props();
+  let { flipCard, currentTest, changeTest }: ControllerProps = $props();
 </script>
 
 <div class="controller">
-  <PreviousButton />
+  <PreviousButton onclick={() => changeTest("previous")} />
   <FlipButton onclick={flipCard} {currentTest} />
-  <NextButton />
+  <NextButton onclick={() => changeTest("next")} />
 </div>
 
 <style>

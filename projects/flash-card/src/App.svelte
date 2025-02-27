@@ -32,6 +32,19 @@
       return test;
     });
   }
+
+  function changeTest(direction: "next" | "previous") {
+    let newIndex = direction == "next" ? index + 1 : index - 1;
+
+    if (newIndex < 0 || newIndex > testData.length - 1) {
+      console.log(
+        direction == "next" ? "reached last test" : "reached first test"
+      );
+      return;
+    }
+
+    index = newIndex;
+  }
 </script>
 
 {#if testData && currentTest}
@@ -41,7 +54,7 @@
       <ProgressBar />
     </header>
     <Card {currentTest} />
-    <Controller {...{ currentTest, flipCard }} />
+    <Controller {...{ currentTest, flipCard, changeTest }} />
   </main>
 {/if}
 
