@@ -13,6 +13,19 @@ type Test = TestRaw & {
 
 type ClickEventHandler = (mouse: MouseEvent) => void;
 
-interface EventProps {
+type CardProps = { currentTest: Test; isFlipped: boolean };
+
+type ControllerProps = {
+  flipCard: ClickEventHandler;
+  changeTest: Function;
+  currentTest: Test;
+  isFlipped: boolean;
+};
+
+type FlipButtonProps = EventProps & {
+  isFlipped: boolean;
+};
+
+type EventProps = {
   onclick: ClickEventHandler;
-}
+};

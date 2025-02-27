@@ -7,6 +7,7 @@
 
   let testData = $state<Test[]>([]);
   let index = $state<number>(0);
+  let isFlipped = $state<boolean>(false);
   let currentTest = $derived<Test>(testData[index]);
 
   onMount(async () => {
@@ -23,6 +24,13 @@
   });
 
   function flipCard() {
+    isFlipped = !isFlipped;
+    console.log(currentTest);
+
+    if (currentTest.isOpen) {
+      return;
+    }
+
     let updatedData: Partial<Test> = { isOpen: !currentTest.isOpen };
     let updatedTest = { ...currentTest, ...updatedData };
     testData = testData.map((test) => {
@@ -43,6 +51,7 @@
       return;
     }
 
+    isFlipped = false;
     index = newIndex;
   }
 </script>
@@ -53,8 +62,8 @@
       <Timer />
       <ProgressBar />
     </header>
-    <Card {currentTest} />
-    <Controller {...{ currentTest, flipCard, changeTest }} />
+    <Card {...{ currentTest, isFlipped }} />
+    <Controller {...{ currentTest, flipCard, changeTest, isFlipped }} />
   </main>
 {/if}
 

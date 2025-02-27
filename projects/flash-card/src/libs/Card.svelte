@@ -1,13 +1,12 @@
 <script lang="ts">
-  type CardProps = { currentTest: Test };
-  let { currentTest }: CardProps = $props();
+  let { currentTest, isFlipped }: CardProps = $props();
 </script>
 
 <div class="card">
   {#if currentTest}
     <div class="test-board">
       <p class={`test-text`}>
-        {currentTest.isOpen ? currentTest.answer : currentTest.question}
+        {isFlipped ? currentTest.answer : currentTest.question}
       </p>
     </div>
   {/if}
