@@ -1,4 +1,11 @@
-<button class="outline-button previous-button controller-button icon-button">
+<script lang="ts">
+  let props: EventProps = $props();
+</script>
+
+<button
+  class="outline-button previous-button controller-button icon-button"
+  {...props}
+>
   <div class="icon previous-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
       ><path

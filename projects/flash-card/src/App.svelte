@@ -19,13 +19,29 @@
 
     if (!testData[newPosition]) {
       console.log(
-        "Cannot switch to next test because you already came on last test"
+        "Cannot switch to next test because you already on the last test"
       );
       return;
     }
 
     currentTest = testData[newPosition];
+    isOpen = currentTest.isOpen;
     testPosition++;
+  }
+
+  function previousTest() {
+    let newPosition = testPosition - 1;
+
+    if (!testData[newPosition]) {
+      console.log(
+        "Cannot switch to next test because you already on the first test"
+      );
+      return;
+    }
+
+    currentTest = testData[newPosition];
+    isOpen = currentTest.isOpen;
+    testPosition--;
   }
 
   onMount(async () => {
@@ -51,7 +67,7 @@
       <ProgressBar />
     </header>
     <Card testData={currentTest} {isOpen} />
-    <Controller {flipCard} {isOpen} {nextTest} />
+    <Controller {flipCard} {isOpen} {nextTest} {previousTest} />
   </main>
 {/if}
 

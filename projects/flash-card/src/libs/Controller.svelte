@@ -7,13 +7,14 @@
     flipCard: Function;
     isOpen: boolean;
     nextTest: Function;
+    previousTest: Function;
   };
 
-  let { flipCard, isOpen, nextTest }: ControllerProps = $props();
+  let { flipCard, isOpen, nextTest, previousTest }: ControllerProps = $props();
 </script>
 
 <div class="controller">
-  <PreviousButton />
+  <PreviousButton onclick={() => previousTest()} />
   <FlipButton onclick={() => flipCard()} {isOpen} />
   <NextButton onclick={() => nextTest()} />
 </div>
