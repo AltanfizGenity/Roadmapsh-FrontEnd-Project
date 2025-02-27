@@ -11,6 +11,8 @@ type Test = TestRaw & {
   isOpen: boolean;
 };
 
+type ClickEventHandler = (mouse: MouseEvent) => void;
+
 interface EventProps {
-  onclick?: (event: MouseEvent) => void;
+  onclick: ClickEventHandler;
 }

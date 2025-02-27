@@ -5,69 +5,43 @@
   import ProgressBar from "./libs/ProgressBar.svelte";
   import Timer from "./libs/Timer.svelte";
 
-  let testData: Test[];
-  let currentTest: Test;
-  let isOpen: boolean;
-  let testPosition: number;
-
-  function flipCard() {
-    isOpen = !isOpen;
-  }
-
-  function nextTest() {
-    let newPosition = testPosition + 1;
-
-    if (!testData[newPosition]) {
-      console.log(
-        "Cannot switch to next test because you already on the last test"
-      );
-      return;
-    }
-
-    currentTest = testData[newPosition];
-    isOpen = currentTest.isOpen;
-    testPosition++;
-  }
-
-  function previousTest() {
-    let newPosition = testPosition - 1;
-
-    if (!testData[newPosition]) {
-      console.log(
-        "Cannot switch to next test because you already on the first test"
-      );
-      return;
-    }
-
-    currentTest = testData[newPosition];
-    isOpen = currentTest.isOpen;
-    testPosition--;
-  }
+  let testData = $state<Test[]>([]);
+  let index = $state<number>(0);
+  let currentTest = $derived<Test>(testData[index]);
 
   onMount(async () => {
     try {
       let response = await fetch("/data/test.json");
       let data: Awaited<TestRaw[]> = await response.json();
-      testData = data.map((test) => {
-        return { id: Date.now().toString(), isOpen: false, ...test };
+      testData = data.map((test, index) => {
+        return { id: Date.now().toString() + index, isOpen: false, ...test };
       });
-      testPosition = 1;
-      currentTest = testData[testPosition - 1];
-      isOpen = currentTest.isOpen;
+      index = 0;
     } catch (error) {
       console.log(error);
     }
   });
+
+  function flipCard() {
+    let updatedData: Partial<Test> = { isOpen: !currentTest.isOpen };
+    let updatedTest = { ...currentTest, ...updatedData };
+    testData = testData.map((test) => {
+      if (test.id === updatedTest.id) {
+        return updatedTest;
+      }
+      return test;
+    });
+  }
 </script>
 
-{#if testData}
+{#if testData && currentTest}
   <main class="flash-card">
     <header>
       <Timer />
       <ProgressBar />
     </header>
-    <Card testData={currentTest} {isOpen} />
-    <Controller {flipCard} {isOpen} {nextTest} {previousTest} />
+    <Card {currentTest} />
+    <Controller {...{ currentTest, flipCard }} />
   </main>
 {/if}
 

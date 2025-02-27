@@ -1,5 +1,5 @@
 <script lang="ts">
-  let props: EventProps = $props();
+  let props = $props();
 </script>
 
 <button

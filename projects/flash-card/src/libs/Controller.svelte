@@ -4,19 +4,17 @@
   import PreviousButton from "./PreviousButton.svelte";
 
   type ControllerProps = {
-    flipCard: Function;
-    isOpen: boolean;
-    nextTest: Function;
-    previousTest: Function;
+    flipCard: ClickEventHandler;
+    currentTest: Test;
   };
 
-  let { flipCard, isOpen, nextTest, previousTest }: ControllerProps = $props();
+  let { flipCard, currentTest }: ControllerProps = $props();
 </script>
 
 <div class="controller">
-  <PreviousButton onclick={() => previousTest()} />
-  <FlipButton onclick={() => flipCard()} {isOpen} />
-  <NextButton onclick={() => nextTest()} />
+  <PreviousButton />
+  <FlipButton onclick={flipCard} {currentTest} />
+  <NextButton />
 </div>
 
 <style>

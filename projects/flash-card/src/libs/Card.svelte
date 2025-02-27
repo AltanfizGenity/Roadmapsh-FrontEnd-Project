@@ -1,14 +1,16 @@
 <script lang="ts">
-  type CardProps = { testData: Test; isOpen: boolean };
-  let { testData, isOpen }: CardProps = $props();
+  type CardProps = { currentTest: Test };
+  let { currentTest }: CardProps = $props();
 </script>
 
 <div class="card">
-  <div class="test-board">
-    <p class={`test-text ${isOpen ? "answer" : "question"}`}>
-      {isOpen ? testData.answer : testData.question}
-    </p>
-  </div>
+  {#if currentTest}
+    <div class="test-board">
+      <p class={`test-text`}>
+        {currentTest.isOpen ? currentTest.answer : currentTest.question}
+      </p>
+    </div>
+  {/if}
 </div>
 
 <style>

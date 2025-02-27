@@ -1,11 +1,10 @@
 <script lang="ts">
-  type FlipButtonProps = {
-    onclick?: (event: MouseEvent) => void;
-    isOpen: boolean;
-  };
+  interface FlipButtonProps extends EventProps {
+    currentTest: Test;
+  }
   let props: FlipButtonProps = $props();
 </script>
 
 <button class="primary-button flip-button controller-button" {...props}>
-  {props.isOpen ? "Hide Answer" : "Show Answer"}
+  {props.currentTest.isOpen ? "Hide Answer" : "Show Answer"}
 </button>
