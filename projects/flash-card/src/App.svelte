@@ -12,6 +12,7 @@
   let progressMeter = $derived<number>(
     testData.filter((test) => test.isOpen).length
   );
+  let timer = $state<number>(0);
 
   onMount(async () => {
     try {
@@ -21,6 +22,7 @@
         return { id: Date.now().toString() + index, isOpen: false, ...test };
       });
       index = 0;
+      timerStart();
     } catch (error) {
       console.log(error);
     }
@@ -56,12 +58,22 @@
     isFlipped = false;
     index = newIndex;
   }
+
+  function timerStart() {
+    let intervalID: number = setInterval(() => {
+      timer += 1;
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalID);
+    };
+  }
 </script>
 
 {#if testData && currentTest}
   <main class="flash-card">
     <header>
-      <Timer />
+      <Timer {timer} />
       <ProgressBar {...{ progressMeter, totalLength: testData.length }} />
     </header>
     <Card {...{ currentTest, isFlipped }} />

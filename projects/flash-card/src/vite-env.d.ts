@@ -38,3 +38,7 @@ type ProgressBarProps = {
 type NextButtonProps = EventProps & {
   isOpen: boolean;
 };
+
+type TimerProps = {
+  timer: number;
+};

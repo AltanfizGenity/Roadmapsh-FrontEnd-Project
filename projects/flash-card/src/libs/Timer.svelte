@@ -1,3 +1,15 @@
+<script lang="ts">
+  let props: TimerProps = $props();
+
+  const getMinutes = (timer: number): number => Math.floor((timer % 3600) / 60);
+  const getSeconds = (timer: number): number => Math.floor(timer % 60);
+  const formatZero = (number: number): string =>
+    number < 10 ? `0${number}` : number.toString();
+
+  let minutes = $derived.by(() => getMinutes(props.timer));
+  let seconds = $derived.by(() => getSeconds(props.timer));
+</script>
+
 <div class="timer">
   <div class="icon timer-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
@@ -6,7 +18,7 @@
       /></svg
     >
   </div>
-  <p class="timer-length">00:00</p>
+  <p class="timer-length">{formatZero(minutes)}:{formatZero(seconds)}</p>
 </div>
 
 <style>
