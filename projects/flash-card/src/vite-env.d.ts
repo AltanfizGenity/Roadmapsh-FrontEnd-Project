@@ -34,3 +34,7 @@ type ProgressBarProps = {
   progressMeter: number;
   totalLength: number;
 };
+
+type NextButtonProps = EventProps & {
+  isOpen: boolean;
+};

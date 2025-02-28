@@ -1,10 +1,11 @@
 <script lang="ts">
-  let props: EventProps = $props();
+  let props: NextButtonProps = $props();
 </script>
 
 <button
-  class="outline-button next-button controller-button icon-button"
+  class={`outline-button next-button controller-button icon-button ${props.isOpen ? "" : "disabled"}`}
   {...props}
+  aria-disabled={!props.isOpen}
 >
   <p>Next</p>
   <div class="icon next-icon">

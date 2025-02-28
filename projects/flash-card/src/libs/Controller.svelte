@@ -10,7 +10,7 @@
 <div class="controller">
   <PreviousButton onclick={() => changeTest("previous")} />
   <FlipButton onclick={flipCard} {isFlipped} />
-  <NextButton onclick={() => changeTest("next")} />
+  <NextButton onclick={() => changeTest("next")} isOpen={currentTest.isOpen} />
 </div>
 
 <style>
