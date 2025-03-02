@@ -3,7 +3,7 @@
 </script>
 
 <button
-  class={`next-button ${props.isOpen ? "" : "disabled"}`}
+  class={`next-button ${props.isOpen ? "" : "disabled"} ${props.index >= props.testData.length - 1 ? "disabled" : ""}`}
   {...props}
   aria-disabled={!props.isOpen}
 >

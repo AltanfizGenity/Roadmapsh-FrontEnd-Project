@@ -24,6 +24,8 @@ type ControllerProps = {
   changeTest: Function;
   currentTest: Test;
   isFlipped: boolean;
+  testData: Test[];
+  testIndex: number;
 };
 
 type FlipButtonProps = EventProps & {
@@ -35,8 +37,14 @@ type ProgressBarProps = {
   totalLength: number;
 };
 
+type PreviousButtonProps = EventProps & {
+  index: number;
+};
+
 type NextButtonProps = EventProps & {
   isOpen: boolean;
+  index: number;
+  testData: Test[];
 };
 
 type TimerProps = {

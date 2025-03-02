@@ -77,6 +77,15 @@
       <ProgressBar {...{ progressMeter, totalLength: testData.length }} />
     </header>
     <Card {...{ currentTest, isFlipped }} />
-    <Controller {...{ currentTest, flipCard, changeTest, isFlipped }} />
+    <Controller
+      {...{
+        currentTest,
+        flipCard,
+        changeTest,
+        isFlipped,
+        testData,
+        testIndex: index,
+      }}
+    />
   </main>
 {/if}

@@ -1,8 +1,11 @@
 <script lang="ts">
-  let props: EventProps = $props();
+  let props: PreviousButtonProps = $props();
 </script>
 
-<button class="previous-button" {...props}>
+<button
+  class={`previous-button ${props.index == 0 ? "disabled" : ""}`}
+  {...props}
+>
   <div class="icon previous-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"
       ><path
