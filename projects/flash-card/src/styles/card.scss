@@ -2,6 +2,8 @@
 
 $card-padding: 4rem;
 $card-height: 36rem;
+$card-padding-sm: 1rem;
+$card-height-sm: 60%;
 
 .card {
   width: 100%;
@@ -24,5 +26,25 @@ $card-height: 36rem;
 
   &.answer {
     font-size: $text-2xl;
+  }
+}
+
+@media (max-width: $small-desktop-size) {
+  .card {
+    width: 100vw;
+    height: 75%;
+    border-radius: 0;
+    padding: $card-padding-sm;
+    border: $border;
+  }
+
+  .test-text {
+    font-size: $text-xl;
+    text-align: center;
+    line-height: 1.5;
+
+    &.answer {
+      font-size: $text-base;
+    }
   }
 }

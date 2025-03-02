@@ -6,6 +6,7 @@ $accent: #44fdcc;
 
 $radius: 0.625rem;
 $padding-button: 1rem 1.5rem;
+$padding-button-mobile: 0.5rem 1rem;
 
 $text-xs: 0.75rem; /* 12px */
 $text-sm: 0.875rem; /* 14px */
@@ -34,6 +35,10 @@ $gap-6xl: 3.75rem; /* 60px */
 $gap-7xl: 4.5rem; /* 72px */
 $gap-8xl: 6rem; /* 96px */
 $gap-9xl: 8rem; /* 128px */
+
+$border: 0.0313rem solid $text;
+
+$small-desktop-size: 64rem;
 
 @mixin flex-center {
   display: flex;

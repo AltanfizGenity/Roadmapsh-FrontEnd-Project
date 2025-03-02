@@ -12,3 +12,12 @@ $controller-padding: 1rem;
   border: 1px solid #000;
   border-radius: $radius;
 }
+
+@media (max-width: $small-desktop-size) {
+  .controller {
+    position: fixed;
+    bottom: 0;
+    border-radius: 0;
+    border: 0.0313rem solid $text;
+  }
+}

@@ -79,3 +79,28 @@ button {
 .flip-button {
   @extend .controller-button, .primary-button;
 }
+
+@media (max-width: $small-desktop-size) {
+  #app {
+    width: 100%;
+    min-height: 100dvh;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .padding-button {
+    padding: $padding-button-mobile;
+  }
+
+  .controller-button {
+    min-width: auto;
+  }
+
+  .icon-button {
+    @include flex-center;
+
+    p {
+      display: none;
+    }
+  }
+}

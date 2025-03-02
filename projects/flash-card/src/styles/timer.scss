@@ -17,3 +17,18 @@ $gap: 0.5rem;
 .timer-length {
   font-size: $text-2xl;
 }
+
+@media (max-width: $small-desktop-size) {
+  .timer {
+    gap: 0.25rem;
+  }
+
+  .timer-icon {
+    width: $text-xl;
+    height: $text-xl;
+  }
+
+  .timer-length {
+    font-size: $text-base;
+  }
+}

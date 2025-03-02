@@ -1,12 +1,14 @@
 @use "lib" as *;
 
 $progressbar-height: 2rem;
+$progressbar-height-sd: 1rem;
 
 .progress-bar {
   position: relative;
   width: 100%;
   height: $progressbar-height;
-  border: 1px solid #000;
+  border: $border;
+
   border-radius: $radius;
   background-color: #fff;
 }
@@ -45,4 +47,18 @@ $progressbar-height: 2rem;
   right: 2.5%;
   translate: 0 -50%;
   z-index: 100;
+}
+
+@media (max-width: $small-desktop-size) {
+  .progress-bar {
+    height: $progressbar-height-sd;
+  }
+
+  .indicator {
+    display: none;
+  }
+
+  .progress-glow {
+    filter: blur(15px);
+  }
 }

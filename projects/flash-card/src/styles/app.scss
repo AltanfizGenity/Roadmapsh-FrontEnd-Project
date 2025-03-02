@@ -5,6 +5,7 @@ $flash-card-width: 64rem;
 
 .flash-card {
   @include flex-center;
+  position: relative;
   width: $flash-card-width;
   flex-direction: column;
   gap: $gap-3xl;
@@ -17,4 +18,20 @@ header {
   flex-direction: column;
   gap: $gap-xl;
   margin-bottom: 2rem;
+}
+
+@media (max-width: $small-desktop-size) {
+  .flash-card {
+    width: 100%;
+    height: calc(100dvh - 4.5rem);
+    gap: $gap-xl;
+    margin-top: 4.5rem;
+    padding: 1rem;
+    justify-content: start;
+  }
+
+  header {
+    gap: 0.25rem;
+    margin-bottom: 0;
+  }
 }
