@@ -1,0 +1,81 @@
+@use "lib" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: $background;
+}
+
+#app {
+  width: 100%;
+  min-height: 100dvh;
+  @include flex-center;
+}
+
+button {
+  cursor: pointer;
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+
+.padding-button {
+  padding: $padding-button;
+  font-size: $text-base;
+  border-radius: $radius;
+}
+
+.outline-button {
+  @extend .padding-button;
+  background-color: transparent;
+  border: 1px solid #000;
+}
+
+.primary-button {
+  @extend .padding-button;
+  background-color: $primary;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    filter: brightness(95%);
+  }
+}
+
+.controller-button {
+  min-width: 10rem;
+}
+
+.icon-button {
+  @include flex-center;
+  gap: $gap-xs;
+
+  .icon {
+    width: $text-base;
+    height: $text-base;
+  }
+
+  &:hover {
+    color: $primary;
+    .icon {
+      fill: $primary;
+    }
+  }
+}
+
+.next-button,
+.previous-button {
+  @extend .outline-button, .icon-button, .controller-button;
+}
+
+.flip-button {
+  @extend .controller-button, .primary-button;
+}

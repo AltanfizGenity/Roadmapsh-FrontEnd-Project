@@ -13,15 +13,6 @@
   <NextButton onclick={() => changeTest("next")} isOpen={currentTest.isOpen} />
 </div>
 
-<style>
-  .controller {
-    width: 100%;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #000;
-    border-radius: var(--radius);
-  }
+<style lang="scss">
+  @forward "../styles/controller.scss";
 </style>

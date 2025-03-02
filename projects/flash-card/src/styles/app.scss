@@ -1,0 +1,20 @@
+@use "lib" as *;
+@forward "global.scss";
+
+$flash-card-width: 64rem;
+
+.flash-card {
+  @include flex-center;
+  width: $flash-card-width;
+  flex-direction: column;
+  gap: $gap-3xl;
+  background-color: $background;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $gap-xl;
+  margin-bottom: 2rem;
+}

@@ -3,7 +3,7 @@
 </script>
 
 <button
-  class={`outline-button next-button controller-button icon-button ${props.isOpen ? "" : "disabled"}`}
+  class={`next-button ${props.isOpen ? "" : "disabled"}`}
   {...props}
   aria-disabled={!props.isOpen}
 >

@@ -21,20 +21,6 @@
   <p class="timer-length">{formatZero(minutes)}:{formatZero(seconds)}</p>
 </div>
 
-<style>
-  .timer {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
-
-  .timer-icon {
-    width: 3rem;
-    height: 3rem;
-    fill: var(--primary);
-  }
-
-  .timer-length {
-    font-size: 2rem;
-  }
+<style lang="scss">
+  @forward "../styles/timer.scss";
 </style>

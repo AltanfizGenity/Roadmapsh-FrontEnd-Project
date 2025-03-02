@@ -1,0 +1,14 @@
+@use "../styles/lib" as *;
+
+$controller-padding: 1rem;
+
+.controller {
+  width: 100%;
+  padding: $controller-padding;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: $radius;
+}

@@ -1,0 +1,19 @@
+@use "../styles/lib" as *;
+
+$gap: 0.5rem;
+
+.timer {
+  display: flex;
+  gap: $gap;
+  align-items: center;
+}
+
+.timer-icon {
+  width: $text-3xl;
+  height: $text-3xl;
+  fill: $primary;
+}
+
+.timer-length {
+  font-size: $text-2xl;
+}

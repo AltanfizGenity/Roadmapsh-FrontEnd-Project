@@ -1,0 +1,48 @@
+@use "lib" as *;
+
+$progressbar-height: 2rem;
+
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: $progressbar-height;
+  border: 1px solid #000;
+  border-radius: $radius;
+  background-color: #fff;
+}
+
+.progress {
+  @include fullsize;
+  position: relative;
+  border-radius: inherit;
+
+  .progress-rect {
+    @include fullsize;
+    background-color: $accent;
+    border-radius: inherit;
+    transition: 0.5s ease;
+    transform-origin: left;
+  }
+
+  .progress-glow {
+    @include fullsize;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $accent;
+    border-radius: inherit;
+    filter: blur(25px);
+    z-index: 100;
+    transition: 0.5s ease;
+    transform-origin: left;
+  }
+}
+
+.indicator {
+  position: absolute;
+  top: 50%;
+  right: 2.5%;
+  translate: 0 -50%;
+  z-index: 100;
+}

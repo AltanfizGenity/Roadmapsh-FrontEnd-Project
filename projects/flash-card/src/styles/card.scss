@@ -1,0 +1,28 @@
+@use "../styles/lib" as *;
+
+$card-padding: 4rem;
+$card-height: 36rem;
+
+.card {
+  width: 100%;
+  height: $card-height;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: $radius;
+  padding: $card-padding;
+}
+
+.test-board {
+  @include fullsize;
+  @include flex-center;
+}
+
+.test-text {
+  font-size: $text-3xl;
+  text-align: center;
+  line-height: 1.5;
+
+  &.answer {
+    font-size: $text-2xl;
+  }
+}
