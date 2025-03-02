@@ -13,6 +13,7 @@
     testData.filter((test) => test.isOpen).length
   );
   let timer = $state<number>(0);
+  let stopTimer = $state<Function>();
 
   onMount(async () => {
     try {
@@ -22,7 +23,7 @@
         return { id: Date.now().toString() + index, isOpen: false, ...test };
       });
       index = 0;
-      timerStart();
+      stopTimer = timerStart();
     } catch (error) {
       console.log(error);
     }
@@ -53,6 +54,10 @@
         direction == "next" ? "reached last test" : "reached first test"
       );
       return;
+    }
+
+    if (newIndex >= testData.length - 1 && stopTimer) {
+      stopTimer();
     }
 
     isFlipped = false;
